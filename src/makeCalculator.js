@@ -18,13 +18,15 @@ function makeCalculator() {
     divide(number) {
       calculator.result /= number;
     },
-    reset(number) {
+    reset() {
       calculator.result = 0;
 
       return this;
     },
     operate(callback, number) {
-      callback(number);
+      if (typeof callback === 'function') {
+        callback(number);
+      }
 
       return this;
     },
